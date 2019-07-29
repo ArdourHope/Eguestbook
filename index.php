@@ -109,7 +109,7 @@ $('#idfield1').keypress(function() {
 
 					<div style="width:100%">
 						<input style="width:50%;margin:auto;" class="form-control idfield1 UIDtext" autofocus required type="text" placeholder="Masukkan nomor id kartu" aria-label="Search" name="UID" id ="UID" autofocus> <br> 
-						<input type="submit" class="btn btn-primary" value="Masuk" data-toggle="modal" data-target="#uidmodal"></a> 
+						<input type="button" class="btn btn-primary" value="Masuk" id="uidval">
 					</div>
 					
 					<br>
@@ -136,8 +136,10 @@ $('#idfield1').keypress(function() {
 <script>
 
 //Add Tamu
-   	$(document).ready(function() {
+$(document).ready(function() {
 		 var counter = 1 ;
+		 var mcounter = 1 ;
+		 $(".divsakit").hide();
 	$("#add").click(function() {
 		if(counter>10){
 			alert("Hanya tiga identitas yang diperbolehkan setiap tamu!.");
@@ -147,9 +149,9 @@ $('#idfield1').keypress(function() {
 		var intId = (lastField && lastField.length && lastField.data(".ctamu") + 1) || 1;
 		var fieldWrapper = $("<div class=\"md-form mb-2 ctamu"+counter+"\">");
 		var flogo =$("<i class=\"fa fa-user prefix grey-text\"></i><label data-error=\"wrong\" data-success=\"right\" for=\"defaultForm-email\">Tamu Tambahan "+counter+"</label>")
-		var fid = $("<div class=\" row col-sm\" style=\"margin-bottom: 5px\"><input type=\"ID\" id=\"ID-tamu \" name = \"id"+counter+"\"class=\"form-control form-control-2 validate col-sm-9\" style=\" margin-right: 5px\"  placeholder=\"Tempelkan ID pengenal\"> <select type=\"ID\" name = \"gen"+counter+"\"  class=\"form-control form-control-2  col-sm-2\"><option value=\"L\" >L</option><option value=\"P\" >P</option></select> </div>");
+		var fid = $("<div class=\" row col-sm\" style=\"margin-bottom: 5px\"><input type=\"ID\"  name = \"id"+counter+"\"class=\"form-control form-control-2 validate col-sm-9\" style=\" margin-right: 5px\"  placeholder=\"Tempelkan ID pengenal\"> <select type=\"ID\" name = \"gen"+counter+"\"  class=\"form-control form-control-2  col-sm-2\"><option value=\"L\" >L</option><option value=\"P\" >P</option></select> </div>");
 		 
-		var fName = $("<input type=\"ID\" id=\"defaultForm-email\" name =\"name"+counter+"\"  class=\"form-control form-control-2\" placeholder=\"Nama Tamu Tambahan\"> </div>")
+		var fName = $("<input type=\"ID\"  name =\"name"+counter+"\"  class=\"form-control form-control-2\" placeholder=\"Nama Tamu Tambahan\"> </div>")
 		
 		fieldWrapper.append(flogo);
 		
@@ -160,7 +162,7 @@ $('#idfield1').keypress(function() {
 		
 	});
 	/**/
-	   $("#removed").click(function () {
+	$("#removed").click(function () {
 		 if(counter==1){
 			alert("Minimal 2 data untuk opsi rombongan.");
 			return false;
@@ -178,14 +180,55 @@ $('#idfield1').keypress(function() {
 	    var stcount = $('.UIDtext').val().length
 	    if(keycode == '13'){
 	    	if (stcount>=3) {	    	
-			        $('#uidmodal').modal('show');
+			        $('#uidmodal'+mcounter).modal('show');
 			}
 			else {
 				alert("Nomer ID minimal memiliki 3 karakter")
 			}
 		}
-	});   
 	});
+
+	$("#uidval").click(function () {
+		var stcount = $('.UIDtext').val().length
+		if (stcount>=3) {	    	
+			        $('#uidmodal'+mcounter).modal('show');
+			}
+			else {
+				alert("Nomer ID minimal memiliki 3 karakter")
+			}
+	});
+
+	$(".nextmb").click(function () {
+		$('#uidmodal'+mcounter).modal('hide');
+		mcounter++;
+		$('#uidmodal'+mcounter).modal('show');
+	});
+
+	$(".backmb").click(function () {
+		$('#uidmodal'+mcounter).modal('hide');
+		mcounter--;
+		$('#uidmodal'+mcounter).modal('show');
+	});
+
+	
+	$("select.chkcon").change(function(){
+        var selectedcon = $(this).children("option:selected").val();
+        if (selectedcon == "Sehat") {
+        	$(".divsakit").hide();
+
+        }
+    });
+    $("select.chkcon").change(function(){
+        var selectedcon = $(this).children("option:selected").val();
+        if (selectedcon == "Sakit") {
+        	$(".divsakit").show();
+
+        }
+    });
+
+
+
+});
 	
 		$(".entered").keypress(function(e) {
 		  //Enter key

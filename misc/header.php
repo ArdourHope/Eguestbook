@@ -58,24 +58,24 @@
 							<div class="md-form mb-2 ctamu0">
 								<i class="fa fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="defaultForm-email">Penanggung jawab</label>
 								<div class=" row col-sm" style="margin-bottom: 5px">
-									<input type="ID" id="ID-tamu " name = "id0" class="form-control form-control-2 validate col-sm-9 " style=" margin-right: 5px" placeholder="Tempelkan ID pengenal">
+									<input type="ID" name = "id0" class="form-control form-control-2 validate col-sm-9 " style=" margin-right: 5px" placeholder="Tempelkan ID pengenal">
 									<select type="ID"  name = "gen0"  class="form-control form-control-2  col-sm-2"  >
 										<option value="L" >L</option>
 								    <option value="P" >P</option>
 									</select>
 								</div>
-								<input type="ID" id="defaultForm-email " name = "id"  class="form-control form-control-2 validate " placeholder="Nama Penanggung Jawab">
+								<input type="ID"  name = "nama"  class="form-control form-control-2 validate " placeholder="Nama Penanggung Jawab">
 							</div>
 							<div class="md-form mb-2 ctamu1">
 								<i class="fa fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="defaultForm-email">Tamu Tambahan 1</label>
 								<div class=" row col-sm" style="margin-bottom: 5px">
-									<input type="ID" id="ID-tamu " name = "id1" class="form-control form-control-2 validate col-sm-9" style=" margin-right: 5px" placeholder="Tempelkan ID pengenal">
+									<input type="ID"  name = "id1" class="form-control form-control-2 validate col-sm-9" style=" margin-right: 5px" placeholder="Tempelkan ID pengenal">
 									<select type="ID"  name = "gen1"  class="form-control form-control-2  col-sm-2"  >
 										<option value="L" >L</option>
-								    <option value="P" >P</option>
+								    	<option value="P" >P</option>
 									</select>
 								</div>
-								<input type="ID" id="defaultForm-email " name = "id2"  class="form-control form-control-2 " placeholder="Nama Tamu Tambahan">
+								<input type="ID"  name = "nama"  class="form-control form-control-2 " placeholder="Nama Tamu Tambahan">
 							</div>
 						</div>			
 						<div class="modal-footer d-flex justify-content-center">
@@ -106,13 +106,13 @@
 					<form method="POST" action='misc/auth/login.php' >
 						<div class="md-form mb-2">
 							<i class="fa fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="defaultForm-email">Nama User</label>
-							<input type="ID" id="defaultForm-email " name = "id"  class="form-control form-control-2 validate" placeholder="Usernname">
+							<input type="ID"  name = "id"  class="form-control form-control-2 validate" placeholder="Usernname">
 						</div>
 
 						<div class="md-form mb-2">
 							<i class="fa fa-lock prefix grey-text"></i>
 							<label data-error="wrong" data-success="right" for="defaultForm-pass">Kata sandi</label>
-							<input type="password" id="defaultForm-pass" name="password" class="form-control form-control-2 validate" placeholder="Password">
+							<input type="password"  name="password" class="form-control form-control-2 validate" placeholder="Password">
 
 						</div>
 						<?php 
